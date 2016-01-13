@@ -2,24 +2,31 @@
 <html>
   <head>
     <title>Ask the Audience</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-7s5uDGW3AHqw6xtJmNNtr+OBRJUlgkNJEo78P4b0yRw= sha512-nNo+yCHEyn0smMxSswnf/OnX6/KwJuZTlNZBjauKhTK0c+zT+q5JOCx0UFhXQ6rJR9jg6Es8gPuD2uZcYDLqSw==" crossorigin="anonymous">
   </head>
   <body>
-    <h1>Please vote in the poll below</h1>
+    <div class="container">
+      <h1>Vote!</h1>
+    </div>
     <br>
-    <div id="connection-count"></div>
+    <div class="container">
+      <div id="connection-count"></div>
+    </div>
     <br>
-    <div id="status-message"></div>
+    <div class="container">
+      <div id="status-message"></div>
+    </div>
     <br>
-    <div>
+    <div class="container">
       <ul id="current-votes">Current votes
       </ul>
     </div>
     <br>
-    <div id="choices">
-      <button>A</button>
-      <button>B</button>
-      <button>C</button>
-      <button>D</button>
+    <div class="container" id="choices">
+      <button class="btn btn-danger">A</button>
+      <button class="btn btn-info">B</button>
+      <button class="btn btn-warning">C</button>
+      <button class="btn btn-success">D</button>
     </div>
     <!-- Make sure your JS is at the bottom of the body! -->
     <script src="/socket.io/socket.io.js"></script>
