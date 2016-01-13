@@ -1,0 +1,25 @@
+{
+  "name": "ask-the-audience",
+  "version": "1.0.0",
+  "description": "Polling app using websockets",
+  "main": "server.js",
+  "scripts": {
+    "test": "test",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/travishaby/ask-the-audience.git"
+  },
+  "author": "Travis Haby",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/travishaby/ask-the-audience/issues"
+  },
+  "homepage": "https://github.com/travishaby/ask-the-audience#readme",
+  "dependencies": {
+    "express": "^4.13.3",
+    "lodash": "^4.0.0",
+    "socket.io": "^1.4.4"
+  }
+}
