@@ -19,3 +19,7 @@ for (var i = 0; i < buttons.length; i++) {
     socket.send('voteCast', this.innerText);
   });
 }
+
+socket.on('voteCount', function (votes) {
+  console.log(votes);
+});

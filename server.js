@@ -1,5 +1,6 @@
 const http = require('http');
 const express = require('express');
+const _ = require('lodash');
 
 const app = express();
 
@@ -31,14 +32,14 @@ io.on('connection', function(socket) {
   socket.on('message', function (channel, message) {
     if (channel === 'voteCast') {
       votes[socket.id] = message;
-      console.log(votes);
+      socket.emit('voteCount', _.countBy(votes))
     }
   });
 
   socket.on('disconnect', function() {
     console.log('A user has disconnected.', io.engine.clientsCount);
     delete votes[socket.id];
-    console.log(votes);
+    socket.emit('voteCount', _.countBy(votes))
     io.sockets.emit('userConnection', io.engine.clientsCount);
   });
 });
