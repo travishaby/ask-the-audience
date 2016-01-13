@@ -34,6 +34,5 @@ socket.on('voteCount', function (votes) {
                     + ' : ' + votes[vote]
                     + '</li>';
   };
-  console.log(votesToRender)
   votesList.innerHTML = votesToRender;
 });
