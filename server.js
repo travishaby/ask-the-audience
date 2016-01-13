@@ -27,11 +27,12 @@ io.on('connection', function(socket) {
 
   io.sockets.emit('usersConnected', io.engine.clientsCount);
 
-  socket.emit('statusMessage', 'You have connected');
+  socket.emit('statusMessage', 'You are connected');
 
   socket.on('message', function (channel, message) {
     if (channel === 'voteCast') {
       votes[socket.id] = message;
+      socket.emit('voteCast', "Your vote of " + message + " has been cast!")
       socket.emit('voteCount', _.countBy(votes))
     }
   });
