@@ -19,6 +19,8 @@ app.get('/', function(request, response){
   response.sendFile(__dirname + '/public/index.html');
 });
 
+var votes = {};
+
 io.on('connection', function(socket) {
   console.log('A user has connected.', io.engine.clientsCount);
 
@@ -26,8 +28,17 @@ io.on('connection', function(socket) {
 
   socket.emit('statusMessage', 'You have connected');
 
+  socket.on('message', function (channel, message) {
+    if (channel === 'voteCast') {
+      votes[socket.id] = message;
+      console.log(votes);
+    }
+  });
+
   socket.on('disconnect', function() {
     console.log('A user has disconnected.', io.engine.clientsCount);
+    delete votes[socket.id];
+    console.log(votes);
     io.sockets.emit('userConnection', io.engine.clientsCount);
   });
 });
